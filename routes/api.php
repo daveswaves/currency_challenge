@@ -2,18 +2,13 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\CurrencyController;
 
 /*
-|--------------------------------------------------------------------------
-| API Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register API routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| is assigned the "api" middleware group. Enjoy building your API!
-|
+cd /opt/lampp/htdocs/currency_challenge && php artisan serve
+
+http://127.0.0.1:8000/api/gbp/2000/eur/3000
+http://127.0.0.1:8000/api/gbp/2000/eur/3000/format
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
-});
+Route::get('/{amountOne}/{currencyOne}/{amountTwo}/{currencyTwo}/{opt?}', [CurrencyController::class, 'index'])->name('index');
