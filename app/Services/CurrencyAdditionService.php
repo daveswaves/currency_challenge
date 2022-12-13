@@ -47,7 +47,7 @@ class CurrencyAdditionService
         float $amountTwo,
     ): float
     {
-        $amountTwoConverted = $this->CurrencyFormatService
+        $amountTwoConverted = $this->currencyConversionService
             ->getConvertedAmount($currencyOne, $currencyTwo, $amountTwo,);
         
         return round($amountOne - $amountTwoConverted, 2);
